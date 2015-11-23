@@ -1,0 +1,70 @@
+<nav class="sidebar">
+    <h1>Buckutt</h1>
+    <ul>
+        <li data-index="0"
+            :class="{ 'active': page === 0 }"
+            @click="changePage">Devices</li>
+        <li data-index="1"
+            :class="{ 'active': page === 1 }"
+            @click="changePage">Items</li>
+        <li data-index="2"
+            :class="{ 'active': page === 2 }"
+            @click="changePage">Trésorerie</li>
+        <li data-index="3"
+            :class="{ 'active': page === 3 }"
+            @click="changePage">Droits</li>
+        <li data-index="4"
+            :class="{ 'active': page === 4 }"
+            @click="changePage">Périodes</li>
+    </ul>
+</nav>
+<div class="pages"
+     v-el="pages">
+    <div class="page"
+         v-if="page === 0">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Devices</h3>
+            </div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="page"
+         v-if="page === 1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Items</h3>
+            </div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="page"
+         v-if="page === 2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Trésorerie</h3>
+            </div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="page"
+         v-if="page === 3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Droits</h3>
+            </div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="page"
+         v-if="page === 4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Périodes</h3>
+            </div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="styles/dashboard.css">

@@ -1,0 +1,54 @@
+<h1>Buckutt Administration Tool</h1>
+
+<br>
+
+<form class="form-horizontal"
+      @submit.prevent="login">
+    <h2>Connexion</h2>
+
+    <div class="alert alert-danger alert-dismissable"
+         v-el="failedAuth"
+         v-transition="expand">
+        <button type="button" class="close fa-times fa"
+                @click.prevent="dismissAlert"></button>
+        Identifiant ou mot de passe incorrect
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12">
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <input type="text" class="form-control" placeholder="Identifiant" required autofocus
+                       tabindex="1"
+                       v-attr="disabled: disableInput"
+                       v-model="email">
+            </div>
+            <span></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                <input type="password" class="form-control" placeholder="Mot de passe" required
+                       tabindex="2"
+                       v-attr="disabled: disableInput"
+                       v-model="password">
+           </div>
+            <span></span>
+        </div>
+    </div>
+    <div class="checkbox checkbox-primary">
+        <input id="remember" type="checkbox"
+               v-attr="disabled: disableInput"
+               v-model="remember">
+        <label for="remember">
+            Se rappeler de moi
+        </label>
+    </div>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" tabindex="3"
+            v-attr="disabled: disableInput">Connexion</button>
+</form>
+
+<link rel="stylesheet" href="styles/login.css">

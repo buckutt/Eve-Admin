@@ -1,0 +1,11 @@
+.form-group.has-feedback {
+    margin-right: 110px;
+}
+
+button {
+    margin-top: -55px;
+    position: absolute;
+    right: 60px;
+    transition: background-color .25s linear,
+                border .25s linear !important;
+}

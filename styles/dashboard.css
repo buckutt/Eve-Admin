@@ -1,0 +1,53 @@
+html, body, main {
+    height: 100%;
+    margin: 0;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Sidebar */
+nav {
+    background-color: #364347;
+    height: 100%;
+    width: 200px;
+}
+
+nav h1 {
+    color: #fff;
+    margin: 0;
+    padding: 10px;
+}
+
+nav ul {
+    padding-left: 0;
+}
+
+nav ul li {
+    color: #fff;
+    cursor: pointer;
+    background-color: #5e696d;
+    line-height: 45px;
+    list-style-type: none;
+    padding-left: 20px;
+    height: 45px;
+}
+
+nav ul li:hover,
+nav ul li.active {
+    background-color: #93a4aa;
+}
+
+/* Pages */
+.pages {
+    height: 100%;
+    left: 200px;
+    position: absolute;
+    top: 0;
+    width: calc(100% - 200px);
+}
+
+.pages .page {
+    height: 100%;
+    overflow-y: auto;
+    padding: 50px;
+}

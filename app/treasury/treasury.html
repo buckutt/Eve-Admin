@@ -1,0 +1,158 @@
+<form class="form-inline">
+    <div class="btn-group btn-group-dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{ activePoint }}</button>
+        <ul class="dropdown-menu" role="menu"
+            v-el="pointsDropdown">
+            <div class="arrow top"></div>
+            <li :class="{ 'active': activePointIndex === 0 }">
+                <a href="#"
+                   @click.prevent="changePoint(0)">Tous les points</a>
+            </li>
+            <li :class="{ 'active': activePointIndex === 1 }">
+                <a href="#"
+                   @click.prevent="changePoint(1)">Point 1</a>
+            </li>
+            <li :class="{ 'active': activePointIndex === 2 }">
+                <a href="#"
+                   @click.prevent="changePoint(2)">Point 2</a>
+            </li>
+        </ul>
+    </div>
+    <div class="btn-group btn-group-dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{ activeFundation }}</button>
+        <ul class="dropdown-menu" role="menu"
+            v-el="fundationsDropdown">
+            <div class="arrow top"></div>
+            <li :class="{ 'active': activeFundationIndex === 0 }">
+                <a href="#"
+                   @click.prevent="changeFundation(0)">Toutes les assos</a>
+            </li>
+            <li :class="{ 'active': activeFundationIndex === 1 }">
+                <a href="#"
+                   @click.prevent="changeFundation(1)">Asso 1</a>
+            </li>
+            <li :class="{ 'active': activeFundationIndex === 2 }">
+                <a href="#"
+                   @click.prevent="changeFundation(2)">Asso 2</a>
+            </li>
+        </ul>
+    </div>
+    <div class="btn-group btn-group-dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{ activePeriod }}</button>
+        <ul class="dropdown-menu" role="menu"
+            v-el="periodDropdown">
+            <div class="arrow top"></div>
+            <li :class="{ 'active': activePeriodIndex === 0 }">
+                <a href="#"
+                   @click.prevent="changePeriod(0)">Période personnalisée</a>
+            </li>
+            <li :class="{ 'active': activePeriodIndex === 1 }">
+                <a href="#"
+                   @click.prevent="changePeriod(1)">Période 1</a>
+            </li>
+            <li :class="{ 'active': activePeriodIndex === 2 }">
+                <a href="#"
+                   @click.prevent="changePeriod(2)">Période 2</a>
+            </li>
+        </ul>
+    </div>
+    <button type="button" class="btn btn-primary">Récupérer</button>
+    <div class="range-selecter"
+         v-show="customDate">
+        <div class="form-group">
+            <label for="indate">Date de départ :</label>
+            <input type="text" class="datetimepicker form-control" id="indate">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="outdate">Date de fin :</label>
+            <input type="text" class="datetimepicker form-control" id="outdate">
+        </div>
+    </div>
+</form>
+
+<br>
+
+<h3>Ventes <small>(total: {{ totalPurchases | credit true }})</small></h3>
+
+<div class="form-group has-feedback">
+    <input type="text" class="form-control input-block" placeholder="Filtrer..."
+           v-model="searchItem">
+    <span class="fa fa-search form-control-feedback" aria-hidden="true"></span>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vendeur</th>
+            <th>Acheteur</th>
+            <th>Objet</th>
+            <th>Point</th>
+            <th>Association</th>
+            <th>Montant</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="purchase in purchases">
+            <td>{{ purchase.seller }}</td>
+            <td>{{ purchase.buyer }}</td>
+            <td>{{ purchase.article }}</td>
+            <td>{{ purchase.point }}</td>
+            <td>{{ purchase.fundation }}</td>
+            <td>{{ purchase.amount | credit true }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Rechargements</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vendeur</th>
+            <th>Acheteur</th>
+            <th>Moyen de paiement</th>
+            <th>Point</th>
+            <th>Montant</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Lucas Soulier</td>
+            <td>Gabriel Juchault</td>
+            <th>Carte bleue</th>
+            <td>BDE</td>
+            <td>10€</td>
+        </tr>
+        <tr>
+            <td>Lucas Soulier</td>
+            <td>Gabriel Juchault</td>
+            <td>BDE</td>
+            <td>10€</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Transferts</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Source</th>
+            <th>Desintaire</th>
+            <th>Montant</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Lucas Soulier</td>
+            <td>Gabriel Juchault</td>
+            <td>100€</td>
+        </tr>
+        <tr>
+            <td>Lucas Soulier</td>
+            <td>Gabriel Juchault</td>
+            <td>100€</td>
+        </tr>
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="styles/treasury.css">

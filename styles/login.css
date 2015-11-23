@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+}
+
+.alert {
+    display: none;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}

@@ -1,0 +1,26 @@
+.range-selecter {
+    margin-top: 10px;
+}
+
+label[for="outdate"] {
+    display: inline-block;
+    width: 110px;
+}
+
+.open>.dropdown-menu {
+    min-width: 120px;
+}
+
+.dropdown-menu > .top.arrow {
+    left: auto;
+    right: 30px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    padding: 5px;
+}

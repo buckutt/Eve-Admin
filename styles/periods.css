@@ -1,0 +1,17 @@
+td:last-child {
+    padding: 5px !important;
+}
+
+.btn.dropdown-toggle:before {
+    content: "\f013";
+    padding: 0;
+}
+
+.open>.dropdown-menu {
+    min-width: 0;
+}
+
+.dropdown-menu > .top.arrow {
+    left: auto;
+    right: 12px;
+}

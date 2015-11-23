@@ -1,0 +1,97 @@
+<div class="modal fade" id="modalCreate">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Créer un item</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <form>
+                        <div class="form-group">
+                            <label for="periodName">Nom de la période :</label>
+                            <input type="text" class="form-control" id="periodName" placeholder="Éternité">
+                        </div>
+                        <div class="form-group">
+                            <label for="periodStart">Début :</label>
+                            <input type="text" class="form-control datetimepicker" id="periodStart">
+                        </div>
+                        <div class="form-group">
+                            <label for="productName">Fin :</label>
+                            <input type="text" class="form-control datetimepicker" id="productName">
+                        </div>
+                    </form>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#modalCreate">Créer une période</button>
+<table class="table tbale-striped table-hover table-condensed">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <template v-for="period in periods">
+            <tr>
+                <td>
+                    <guid :value="period.id"></guid>
+                </td>
+                <td>{{ period.name }}</td>
+                <td>{{ period.stock }}</td>
+                <td>{{ period.category.name }}</td>
+                <td>{{ period.point.name }} </td>
+                <td>{{ period.price.amount }}</td>
+                <td>
+                    <button type="button" class="btn btn-success">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </template>
+        <tr>
+            <td>#</td>
+            <td>Nom</td>
+            <td>Début</td>
+            <td>Fin</td>
+            <td>
+                <button type="button" class="btn btn-success">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button type="button" class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>#</td>
+            <td>Nom</td>
+            <td>Début</td>
+            <td>Fin</td>
+            <td>
+                <button type="button" class="btn btn-success">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button type="button" class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="styles/periods.css">

@@ -1,0 +1,35 @@
+label {
+    line-height: inherit;
+}
+
+.form-control-feedback {
+    height: 38px;
+    line-height: 38px;
+}
+
+/* Fix datetime picker sizes */
+.datetimepicker {
+    max-width: 248px;
+}
+
+.datetimepicker-days {
+    margin: 0 auto;
+}
+
+.datetimepicker-days table {
+    table-layout: fixed;
+    width: 238px;
+}
+
+.datetimepicker td, .datetimepicker th {
+    width: 34px;
+}
+
+.datetimepicker th.switch {
+    width: 175px;
+}
+
+.datetimepicker .datetimepicker-days th.next {
+    left: 135px;
+    position: relative;
+}
