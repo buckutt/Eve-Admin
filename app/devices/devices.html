@@ -9,8 +9,21 @@
                 <p>
                     <form>
                         <div class="form-group">
-                            <label for="eeetopName">Nom du device :</label>
-                            <input type="text" class="form-control" id="eeetopName" placeholder="Eeetop-1">
+                            <label for="deviceNameAdd">Nom du device :</label>
+                            <input type="text" class="form-control" id="deviceNameAdd" placeholder="Eeetop-1"
+                                   v-model="deviceToAddName">
+                        </div>
+                        <div class="form-group">
+                            <label for="deviceDoubleValidation">Double-validation :</label>
+                            <input type="checkbox" class="form-control" id="deviceDoubleValidation">
+                        </div>
+                        <div class="form-group">
+                            <label for="deviceOffline">Mode offline :</label>
+                            <input type="checkbox" class="form-control" id="deviceOffline">
+                        </div>
+                        <div class="form-group">
+                            <label for="deviceShowPicture">Affichage de l'image utilisateur :</label>
+                            <input type="checkbox" class="form-control" id="deviceShowPicture">
                         </div>
                     </form>
                     <form class="form-inline">
@@ -29,7 +42,8 @@
                         Ajouter un point :
                         <div class="form-group">
                             <label for="point"></label>
-                            <select class="form-control" id="point">
+                            <select class="form-control" id="point"
+                                    v-model="pointToAdd">
                                 <option v-for="point in points" :value="point.id">
                                     {{ point.name }}
                                 </option>
@@ -37,13 +51,15 @@
                         </div>
                         <div class="form-group">
                             <label for="period"></label>
-                            <select class="form-control" id="period">
+                            <select class="form-control" id="period"
+                                    v-model="periodToAdd">
                                 <option v-for="period in periods" :value="period.id">
                                     {{ period.name }}
                                 </option>
                             </select>
                         </div>
-                        <button type="button" class="btn btn-success">
+                        <button type="button" class="btn btn-success"
+                                @click="createDevice">
                             <i class="fa fa-plus"></i>
                         </button>
                     </form>
@@ -68,8 +84,8 @@
                 <p>
                     <form>
                         <div class="form-group">
-                            <label for="eeetopName">Nom du device :</label>
-                            <input type="text" class="form-control" id="eeetopName" placeholder="Eeetop-1"
+                            <label for="deviceNameEdit">Nom du device :</label>
+                            <input type="text" class="form-control" id="deviceNameEdit" placeholder="Eeetop-1"
                                    v-model="deviceToEdit.name">
                         </div>
                     </form>

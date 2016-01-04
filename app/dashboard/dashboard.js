@@ -3,8 +3,8 @@
 /* global document, define */
 
 define('dashboard', require => {
-    const Vue    = require('vue');
-    const view   = require('text!dashboard.html!strip');
+    const Vue  = require('vue');
+    const view = require('text!dashboard.html!strip');
 
     const components = [
         require('devices'),

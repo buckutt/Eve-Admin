@@ -528,9 +528,7 @@ _n(categoryGeneral, articleEau, 'articles');
 _n(categoryGeneral, articleCrepe, 'articles');
 _n(categoryGeneral, articleBeer, 'articles');
 
-/* Devices - Relationships : points */
-_n(deviceEeetop1, pointFoyer, 'points');
-_n(deviceEeetop2, pointFoyer, 'points');
+/* Devices - Relationships : periodPoints */
 _n(deviceEeetop1, periodPointEternityForEEtop1BDE, 'periodPoints');
 _n(deviceEeetop2, periodPointEternityForEEtop2Foyer, 'periodPoints');
 

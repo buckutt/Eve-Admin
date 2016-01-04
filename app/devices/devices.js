@@ -16,24 +16,37 @@ define('devices', require => {
             let devices = new Vue({
                 el     : $el,
                 data   : {
-                    devices: [],
-                    points : [],
-                    periods: []
+                    devices                 : [],
+                    points                  : [],
+                    periods                 : [],
+
+                    // Edit
+                    deviceToEdit            : null,
+                    deviceToEditPeriodPoints: null,
+                    pointToAdd              : null,
+                    periodToAdd             : null,
+
+                    // Add
+                    deviceToAddName         : '',
+                    deviceDoubleValidation  : false,
+                    deviceOffline           : false,
+                    deviceShowPicture       : false
                 },
                 methods: {
                     /**
                      * Edits a device
-                     * @param  {Object} device The device
+                     * @param {Object} device The device
                      */
                     editDevice(device) {
-                        let clonedDevice = clone(device);
-                        this.$set('deviceToEdit', clonedDevice);
-                        this.$set('deviceToEditPeriodPoints', clonedDevice.periodPoints);
+                        console.log(device);
+                        let clonedDevice              = clone(device);
+                        this.deviceToEdit             = clonedDevice;
+                        this.deviceToEditPeriodPoints = clonedDevice.periodPoints;
                     },
 
                     /**
                      * Removes a point from the editing device
-                     * @param  {Object} point The point
+                     * @param {Object} point The point
                      */
                     removePoint(point) {
                         let dtep = this.deviceToEditPeriodPoints;
@@ -57,16 +70,34 @@ define('devices', require => {
                         };
 
                         this.deviceToEditPeriodPoints.push(newPeriodPoint);
-                        this.$set('pointToAdd', '');
-                        this.$set('periodToAdd', '');
+                        this.pointToAdd  = null;
+                        this.periodToAdd = null;
                     },
 
                     /**
                      * Removes a device
-                     * @param  {Object} device The device
+                     * @param {Object} device The device
                      */
                     removeDevice(device) {
                         this.devices.splice(this.devices.indexOf(device), 1);
+                    },
+
+                    /**
+                     * Creates a device
+                     */
+                    createDevice() {
+                        this.devices.push({
+                            createdAt       : new Date(),
+                            name            : this.deviceToAddName,
+                            fingerprint     : '',
+                            isRemoved       : false,
+                            doubleValidation: this.deviceDoubleValidation,
+                            offline         : this.deviceOffline,
+                            showPicture     : this.deviceShowPicture,
+                            periodPoints    : [],
+                            point           : {},
+                            points          : []
+                        });
                     }
                 }
             });
@@ -74,9 +105,9 @@ define('devices', require => {
             setTimeout(() => {
                 // Todo set point from points (get the more accurate period)
                 let dataDevices = data.devices.map(device => device);
-                devices.$set('devices', dataDevices);
-                devices.$set('points', data.points);
-                devices.$set('periods', data.periods);
+                devices.devices = dataDevices;
+                devices.points  = data.points;
+                devices.periods = data.periods;
             }, 500);
 
             return devices;
